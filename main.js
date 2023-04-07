@@ -134,6 +134,7 @@ function moveBall(){
     if(ball.y + ball.size > canvas.height){
         alert("Game Over")
     }
+    
 }
 
 //Funcion to increase score as block is hit
@@ -152,7 +153,7 @@ function showAllBlocks(){
 
 function showGamePauseText(e){
    if(e.key === "Escape") {
-    console.log("game paused");
+    alert("game paused");
    }
 }
 
@@ -161,7 +162,9 @@ function showLevelCompleteText(){
 }
 
 function showGameOverText(){
-    
+    if(ball.y + ball.size > canvas.height){
+        alert("Game Over")
+    }
 }
 // Function called to draw all the canvas elements
 function draw(){
@@ -195,9 +198,9 @@ update();
 //Targetting the right and left arrow keys
 function keyDown(e){
     if(e.key === 'Right' || e.key === 'ArrowRight'){
-        paddle.x += 5
+        paddle.x += 10
     } else if(e.key === 'Left' || e.key === 'ArrowLeft'){
-        paddle.x -= 5
+        paddle.x -= 10
     } 
 }
 
