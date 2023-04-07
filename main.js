@@ -108,15 +108,20 @@ function moveBall(){
 
     //Surrounding wall collision detection(x-axis)
     if(ball.x == 800){
-        ball.x -= 10*ball.dx;
-        ball.y += 10*ball.dy;
+         //right and left walls
+        ball.x -= ball.dx;
+        ball.y += ball.dy;
     }
-    //right and left walls
+   
     
 
     //Surrounding wall collision detection(y-axis)
     //top and bottom walls
-    
+    if(ball.y == 500){
+         //right and left walls
+        ball.x -= 10*ball.dx;
+        ball.y -= 10*ball.dy;
+    }
 
     //Paddle collision functionality
     
