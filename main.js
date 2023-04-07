@@ -12,10 +12,10 @@ const blockColumnCount = 9;
 
 //Creating ball properties
 const ball = {
-    x: canvas.width / 2,
-    y: canvas.height / 2, 
+    x: canvas.width / 2 ,
+    y: canvas.height -32, 
     size: 8, //radius of ball
-    speed: 4,
+    speed: .001,
     dx: 4, //how do ball moves along the x axis once it deflects
     dy: -4, //how do ball moves up along the y axis once it deflects
 };
@@ -107,9 +107,11 @@ function moveBall(){
     ball.y += ball.dy;
 
     //Surrounding wall collision detection(x-axis)
-    //right and left walls
-    
+    if(800<=ball.x || ball.x<0 ) ball.dx=ball.dx*(-1);
 
+   
+    
+    if(500<=ball.y || ball.y<0 || (ball.x>=paddle.x-40 && ball.x<=paddle.x+40 && ball.y>=paddle.y-4 && ball.y<=paddle.y+4)) ball.dy=ball.dy*(-1);
     //Surrounding wall collision detection(y-axis)
     //top and bottom walls
     
@@ -191,9 +193,9 @@ update();
 //Targetting the right and left arrow keys
 function keyDown(e){
     if(e.key === 'Right' || e.key === 'ArrowRight'){
-        paddle.x += 2;
+        paddle.x += 5
     } else if(e.key === 'Left' || e.key === 'ArrowLeft'){
-        paddle.x -= 2;
+        paddle.x -= 5
     } 
 }
 
