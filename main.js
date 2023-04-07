@@ -94,10 +94,16 @@ function movePaddle(){
 
     //Surrounding wall detection
     //To the right side
+    if(paddle.x === 0){
+        paddle.x == paddle.x
+    }
     
 
     //Surrounding wall detection
     //To the left side
+    if(paddle.x === 100){
+        paddle.x == paddle.x
+    }
     
 }
 
