@@ -10,7 +10,14 @@ let score = 0;
 //Number of rows and columns
 const blockRowCount = 6;
 const blockColumnCount = 9;
-
+const bonus = {
+    x: canvas.width / 2 ,
+    y: canvas.height , 
+    size: 8, //radius of ball
+    speed: .001,
+     //how do ball moves along the x axis once it deflects
+    dy: -4, //how do ball moves up along the y axis once it deflects
+};
 //Creating ball properties
 const ball = {
     x: canvas.width / 2 ,
@@ -57,6 +64,14 @@ function drawBall(){
     cntxt.beginPath();
     cntxt.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2);
     cntxt.fillStyle = '#d300d3';
+    cntxt.fill();
+    cntxt.closePath();
+}
+
+function drawBonus(){
+    cntxt.beginPath();
+    cntxt.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2);
+    cntxt.fillStyle = '#000000';
     cntxt.fill();
     cntxt.closePath();
 }
