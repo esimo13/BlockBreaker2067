@@ -91,15 +91,22 @@ function drawScore(){
 }
 
 //Function to move paddle on the canvas
-function movePaddle(){
+function movePaddle(e){
     paddle.x += paddle.dx;
 
     //Surrounding wall detection
     //To the right side
-    
+
+    console.log(paddle.x)
+    if(paddle.x > 720){
+        paddle.x === paddle.x
+    }
 
     //Surrounding wall detection
     //To the left side
+    if(paddle.x < 0){
+        paddle.x === paddle.x
+    }
     
 }
 
@@ -131,9 +138,9 @@ function moveBall(){
     });
 
     //Lose on missing paddle
-    if(ball.y + ball.size > canvas.height){
-        alert("Game Over")
-    }
+    // if(ball.y + ball.size > canvas.height){
+    //     alert("Game Over")
+    // }
     
 }
 
@@ -162,9 +169,9 @@ function showLevelCompleteText(){
 }
 
 function showGameOverText(){
-    if(ball.y + ball.size > canvas.height){
-        alert("Game Over")
-    }
+    // if(ball.y + ball.size > canvas.height){
+    //     alert("Game Over")
+    // }
 }
 // Function called to draw all the canvas elements
 function draw(){
@@ -197,9 +204,9 @@ update();
 //Keydown event function
 //Targetting the right and left arrow keys
 function keyDown(e){
-    if(e.key === 'Right' || e.key === 'ArrowRight'){
+    if(e.key === 'Right' || e.key === 'ArrowRight' && paddle.x<720){
         paddle.x += 10
-    } else if(e.key === 'Left' || e.key === 'ArrowLeft'){
+    } else if(e.key === 'Left' || e.key === 'ArrowLeft' && paddle.x>0){
         paddle.x -= 10
     } 
 }
