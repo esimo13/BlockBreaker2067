@@ -148,8 +148,10 @@ function showAllBlocks(){
     })
 }
 
-function showGamePauseText(){
-    
+function showGamePauseText(e){
+   if(e.key === "Escape") {
+    console.log("game paused");
+   }
 }
 
 function showLevelCompleteText(){
