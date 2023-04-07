@@ -12,10 +12,10 @@ const blockColumnCount = 9;
 
 //Creating ball properties
 const ball = {
-    x: canvas.width / 2,
-    y: canvas.height / 2, 
+    x: canvas.width / 2 ,
+    y: canvas.height -32, 
     size: 8, //radius of ball
-    speed: 4,
+    speed: .001,
     dx: 4, //how do ball moves along the x axis once it deflects
     dy: -4, //how do ball moves up along the y axis once it deflects
 };
@@ -107,6 +107,10 @@ function moveBall(){
     ball.y += ball.dy;
 
     //Surrounding wall collision detection(x-axis)
+    if(ball.x == 800){
+        ball.x -= 10*ball.dx;
+        ball.y += 10*ball.dy;
+    }
     //right and left walls
     
 
