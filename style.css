@@ -69,3 +69,7 @@ canvas{
     transform: translateX(0);
 }
 
+.score{
+    padding-left: 400px;
+    
+}

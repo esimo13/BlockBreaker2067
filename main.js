@@ -1,6 +1,7 @@
 const restartBtn = document.getElementById('restart-btn')
 const canvas = document.querySelector('#canvas');
 const cntxt = canvas.getContext('2d');
+const point = document.querySelector(".score")
 
 let isGamePaused = false;
 let isGameOver = false;
@@ -85,7 +86,8 @@ function drawBlocks(){
 
 //Drawing score on the canvas
 function drawScore(){
-    
+    score += score;
+    point.textContent = score;
 }
 
 //Function to move paddle on the canvas
@@ -122,15 +124,15 @@ function moveBall(){
     //Block collision functionality
     blocks.forEach(column => {
         column.forEach(block => {
-            if(block.visible){
-                
+            if(block.x === ball.x && block.y === ball.y){
+                block.visible =false
             }
         });
     });
 
     //Lose on missing paddle
     if(ball.y + ball.size > canvas.height){
-        
+        alert("Game Over")
     }
 }
 
