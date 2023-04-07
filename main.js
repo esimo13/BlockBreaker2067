@@ -115,6 +115,8 @@ function moveBall(){
     ball.x += ball.dx;
     ball.y += ball.dy;
 
+    
+
     //Surrounding wall collision detection(x-axis)
     if(800<=ball.x || ball.x<0 ) ball.dx=ball.dx*(-1);
 
@@ -138,9 +140,10 @@ function moveBall(){
     });
 
     //Lose on missing paddle
-    // if(ball.y + ball.size > canvas.height){
-    //     alert("Game Over")
-    // }
+    if(ball.y + ball.size > canvas.height){
+        alert("Game Over")
+        cntxt.fillStyle = '#ffffd3'
+    }
     
 }
 
@@ -168,11 +171,11 @@ function showLevelCompleteText(){
     
 }
 
-function showGameOverText(){
-    // if(ball.y + ball.size > canvas.height){
-    //     alert("Game Over")
-    // }
-}
+// function showGameOverText(){
+//     if(ball.y + ball.size > canvas.height){
+//         alert("Game Over")
+//     }
+// }
 // Function called to draw all the canvas elements
 function draw(){
     //clear canvas first
@@ -222,6 +225,16 @@ function keyUp(e){
 //Keyboard event handlers
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
+
+
+document.addEventListener('Escape',(e)=>{
+    if(e.key === "Escape"){
+        ball.x = ball.x
+        ball.y = ball.y
+    }
+    alert(hello)
+    console.log("hello");
+})
 
 
 
