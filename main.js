@@ -107,21 +107,14 @@ function moveBall(){
     ball.y += ball.dy;
 
     //Surrounding wall collision detection(x-axis)
-    if(ball.x == 800){
-         //right and left walls
-        ball.x -= ball.dx;
-        ball.y += ball.dy;
-    }
+    if(800<=ball.x || ball.x<0 ) ball.dx=ball.dx*(-1);
+
    
     
-
+    if(500<=ball.y || ball.y<0 || (ball.x>=paddle.x-40 && ball.x<=paddle.x+40 && ball.y>=paddle.y-4 && ball.y<=paddle.y+4)) ball.dy=ball.dy*(-1);
     //Surrounding wall collision detection(y-axis)
     //top and bottom walls
-    if(ball.y == 500){
-         //right and left walls
-        ball.x -= 10*ball.dx;
-        ball.y -= 10*ball.dy;
-    }
+    
 
     //Paddle collision functionality
     
@@ -198,9 +191,9 @@ update();
 //Targetting the right and left arrow keys
 function keyDown(e){
     if(e.key === 'Right' || e.key === 'ArrowRight'){
-
+        paddle.x += 5
     } else if(e.key === 'Left' || e.key === 'ArrowLeft'){
-
+        paddle.x -= 5
     } 
 }
 
